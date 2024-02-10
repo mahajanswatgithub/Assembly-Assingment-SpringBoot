@@ -8,7 +8,6 @@ This project is a Spring Boot application that simulates an assembly language ex
 - Spring Boot
 - Redis
 - Docker
-- Minikube (Optional)
 - IntelliJ IDEA
 
 ## Getting Started

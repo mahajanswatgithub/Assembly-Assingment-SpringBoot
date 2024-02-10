@@ -29,19 +29,6 @@ This project is a Spring Boot application that simulates an assembly language ex
        docker run -p 8080:8080 miko-assignment-sb-docker1:latest
        ```
 
-   - **Option 2: Minikube (Optional)**
-
-     - Ensure that Minikube is installed.
-     - Start Minikube.
-     - Deploy the Spring Boot application in the Minikube cluster.
-
-       Example commands:
-
-       ```bash
-       minikube start
-       kubectl apply -f minikube.yaml
-       ```
-
 ## Testing with Postman
 
 1. Ensure that the Spring Boot application is running.
@@ -62,5 +49,3 @@ This project is a Spring Boot application that simulates an assembly language ex
 Note: In this simplified version, users can call the `http://localhost:8080/api/assembly-program/execute/execute` API with a JSON payload containing a map of integer to string values representing the assembly program. The response will indicate success or failure.
 
 ##
-
-Happy Coding !

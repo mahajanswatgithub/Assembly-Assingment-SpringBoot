@@ -1,0 +1,50 @@
+version: '3.8'
+
+networks:
+  my-network:
+    driver: bridge
+
+services:
+  # Spring Boot Application
+  spring-boot-app:
+    image: miko-assignment-sb-docker1:latest
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis-server
+    restart: always
+    container_name: miko-assignment-sb1
+    networks:
+      - my-network
+
+  # Redis Server
+  redis-server:
+    image: "redis:latest"
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:
+      - redis-data:/data
+    container_name: redis-server-container
+    networks:
+      - my-network
+
+  # Redis Insight
+  redis-insight:
+    image: "redislabs/redisinsight:latest"
+    ports:
+      - "8001:8001"
+    environment:
+      - REDIS_URI=redis://redis-server:6379
+    depends_on:
+      - redis-server
+    restart: always
+    volumes:
+      - redis-insight-data:/db
+    container_name: redis-insight-container
+    networks:
+      - my-network
+
+volumes:
+  redis-data:
+  redis-insight-data:
